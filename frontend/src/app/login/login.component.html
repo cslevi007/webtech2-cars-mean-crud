@@ -1,0 +1,49 @@
+<div class="d-flex center">
+  <div id="formContent" class="center">
+    <div>
+      <h2 class="mt-2 text-center">Mean CRUD App</h2>
+    </div>
+    <form [formGroup]="loginForm" class="dynamic">
+      <div class="mb-3">
+        <label>Felhasználónév:</label>
+        <input type="text" class="form-control" formControlName="username" />
+        <div class="text-danger" *ngIf="f['username']?.invalid">
+          <small *ngIf="f['username']?.errors?.['required']"
+            >A felhasználónév mező kitöltése kötelező!</small
+          >
+        </div>
+      </div>
+      <div class="mb-3">
+        <label>Jelszó:</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+        />
+        <div class="text-danger" *ngIf="f['password']?.invalid">
+          <small *ngIf="f['password']?.errors?.['required']"
+            >A jelszó mező kitöltése kötelező!</small
+          >
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-success form-control"
+        (click)="login()"
+        [disabled]="loginForm?.invalid"
+      >
+        Bejelentkezés
+      </button>
+
+      <div style="padding-top: 10px">
+        <button
+          type="button"
+          class="btn btn-primary form-control"
+          (click)="navigatetoSignUp()"
+        >
+          Regisztráció
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

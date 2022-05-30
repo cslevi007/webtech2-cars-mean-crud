@@ -1,0 +1,34 @@
+<div class="containter">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Felhasználónév</th>
+            <th scope="col">Jelszó</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+            <td>
+              <button
+                class="btn btn-primary"
+                (click)="navigateToUserForm(user._id)"
+              >
+                Szerkesztés
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteUser(user._id)">
+                Törlés
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div></div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<body>
+  <nav
+    style="padding-left: 25px; padding-right: 25px"
+    class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between"
+    *ngIf="isLoggedIn"
+  >
+    <a class="navbar-brand">Mean CRUD App</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link" routerLink="/car-list">Autók</a>
+        <a class="nav-item nav-link" routerLink="/user-list"
+          >Felhasználó kezelés</a
+        >
+      </div>
+    </div>
+    <a
+      class="btn navbar-btn btn-danger navbar-right pull-right"
+      role="button"
+      href=""
+      >Logout</a
+    >
+  </nav>
+
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</body>

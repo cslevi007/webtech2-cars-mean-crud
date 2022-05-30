@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="col-md-6" id="containerDiv">
+    <form [formGroup]="carForm">
+      <div class="form-group mb-4">
+        <label for="licensePlateNumber">Rendszám</label>
+        <input
+          type="text"
+          class="form-control"
+          id="licensePlateNumber"
+          formControlName="licensePlateNumber"
+          placeholder="ABC-123"
+        />
+        <div class="text-danger">
+          <small *ngIf="f['licensePlateNumber'].errors"
+            >A rendszám formátuma nem megfelelő vagy már létezik az
+            adatbázisban.</small
+          >
+        </div>
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="brand">Márka</label>
+        <input
+          type="text"
+          class="form-control"
+          id="brand"
+          formControlName="brand"
+          placeholder="Toyota"
+        />
+        <div class="text-danger">
+          <small *ngIf="f['brand'].errors">Márka megadása kötelező!</small>
+        </div>
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="type">Tipus</label>
+        <input
+          type="text"
+          class="form-control"
+          id="type"
+          formControlName="type"
+          placeholder="Yaris"
+        />
+        <div class="text-danger">
+          <small *ngIf="f['type'].errors">Tipus megadása kötelező!</small>
+        </div>
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="fuel">Üzemanyag</label>
+        <select
+          class="form-control"
+          class="custom-select"
+          id="fuel"
+          formControlName="fuel"
+        >
+          <option value="benzin">Benzin</option>
+          <option value="dízel">Dízel</option>
+          <option value="hybrid">Hybrid</option>
+          <option value="elektromos">Elektromos</option>
+        </select>
+        <div class="text-danger">
+          <small *ngIf="f['fuel'].errors">Üzemanyag megadása kötelező!</small>
+        </div>
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="consumption">Fogyasztás</label>
+        <input
+          type="number"
+          class="form-control"
+          id="consumption"
+          formControlName="consumption"
+          placeholder="6.2"
+        />
+        <div class="text-danger">
+          <small *ngIf="f['consumption'].errors"
+            >Fogyasztás megadása kötelező!</small
+          >
+        </div>
+      </div>
+
+      <div class="form-group mb-4">
+        <label for="odo">Odo</label>
+        <input
+          type="number"
+          class="form-control"
+          id="odo"
+          formControlName="odo"
+          placeholder="186000"
+        />
+        <div class="text-danger">
+          <small *ngIf="f['odo'].errors">Odo megadása kötelező!</small>
+        </div>
+      </div>
+
+      <button
+        class="btn btn-primary"
+        (click)="addCar()"
+        [disabled]="carForm.invalid"
+      >
+        Mentés
+      </button>
+    </form>
+  </div>
+</div>
